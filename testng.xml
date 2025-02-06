@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <test thread-count="5" name="trelloWorkflow">
+        <classes>
+            <!-- <class name="POST_test"/> -->
+            <class name="trelloWorkflow.CreateBoard"/>
+            <class name="trelloWorkflow.CreateLabelsAutomated"/>
+            <class name="trelloWorkflow.getBoardByID"/>
+            <class name="trelloWorkflow.updateBoard"/>
+            <class name="trelloWorkflow.deleteBoard"/>
+            <class name="trelloWorkflow.okHttpAPIManagment.SomeOkHttpTesting"/>
+            <class name="trelloWorkflow.retrofitAPIManagment.RetrofitTests.CreateBoardTests"/>
+        </classes>
+    </test> <!-- trelloWorkflow -->
+</suite> <!-- Suite -->
