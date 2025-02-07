@@ -7,6 +7,8 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 import utility.BuildRequest;
 import utility.SendRequest;
 import utilityRetrofit.ConfigReader;
@@ -52,21 +54,18 @@ public class BaseTest {
     protected void createLabelsUtil() {
 
         String endpoint = BOARD_ID + "/labels";
-        // Define test data
-        List<TestCreateLabelsAutomated.TestData> testDataList = Arrays.asList(
-                new TestCreateLabelsAutomated.TestData("orange", "orange"),
-                new TestCreateLabelsAutomated.TestData("pink", "barbie"),
-                new TestCreateLabelsAutomated.TestData("red", "bloody"),
-                new TestCreateLabelsAutomated.TestData("blue", "ice")
-        );
 
-        for (TestCreateLabelsAutomated.TestData data : testDataList) {
+        String[] color = {"pink", "orange","blue", "red"};
+        String[] name = {"barbie", "orange","ice", "bloody"};
+
+        for (int i = 0; i < color.length; i++) {
+
             Response response = new BuildRequest().requestSpecification
-                    .queryParam("color", data.color)
-                    .queryParam("name", data.name)
+                    .queryParam("color", color[i])
+                    .queryParam("name", name[i])
                     .when()
                     .post(endpoint); // Send request
-            response.then().spec(responseSpec); // Validate response
+            response.then().spec(responseSpec);
         }
     }
 
@@ -76,5 +75,4 @@ public class BaseTest {
         Response response = new BuildRequest().requestSpecification.when().delete(endpoint);
         response.then().assertThat().statusCode(200 );
     }
-
 }
