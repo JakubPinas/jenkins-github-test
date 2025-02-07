@@ -1,13 +1,7 @@
 package com.trello.PojoClasses.Request;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Getter;
-import lombok.Setter;
 
-
-
-@Getter
-@Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class BoardRootRequest {
 
@@ -64,5 +58,13 @@ public class BoardRootRequest {
 
     public void setPrefs_background(String prefs_background) {
         this.prefs_background = prefs_background;
+    }
+
+    @Override
+    public String toString() {
+        return "BoardRootRequest{" +
+                "name='" + name + '\'' +
+                ", defaultLabels=" + defaultLabels +
+                '}';
     }
 }

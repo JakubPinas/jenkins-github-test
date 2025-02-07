@@ -31,9 +31,9 @@ public class updateBoard extends BaseTest {
 
         Assertions.assertThat(response.jsonPath().getString("name")).as("Names don't match").isEqualTo("123lesgo");
         Assertions.assertThat(response.jsonPath().getString("desc")).as("Description don't match").isEqualTo("siabada");
-        Assertions.assertThat(response.jsonPath().getString("prefs.permissionLevel")).as("Names don't match").isEqualTo("public");
-        Assertions.assertThat(response.jsonPath().getString("prefs.background")).as("Names don't match").isEqualTo("pink");
-        Assertions.assertThat(response.jsonPath().getString("labelNames.green")).as("Names don't match").isEqualTo("spring");
+        Assertions.assertThat(response.jsonPath().getString("prefs.permissionLevel")).as("Permission Levels don't match").isEqualTo("public");
+        Assertions.assertThat(response.jsonPath().getString("prefs.background")).as("Backgrounds don't match").isEqualTo("pink");
+        Assertions.assertThat(response.jsonPath().getString("labelNames.green")).as("Label Names don't match").isEqualTo("spring");
 
     }
 

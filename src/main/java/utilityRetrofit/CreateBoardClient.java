@@ -1,7 +1,6 @@
 package utilityRetrofit;
 import com.trello.PojoClasses.Request.BoardRootRequest;
 import com.trello.PojoClasses.Response.BoardRootResponse;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import retrofit2.Call;
@@ -15,9 +14,8 @@ public class CreateBoardClient  {
     Gson  gson = new GsonBuilder().setPrettyPrinting().create();
     String  baseUrl  = "https://api.trello.com/1/boards/";
 
-    private final String apiKey = "85541f65f19064aa66861544bebcd890";
-    private final String apiToken = "ATTAadbfd99515b6a81298b0f8942143e095dd9d4f915525ed0872e1cb26bcd7fa29F0EBD016";
-
+    private final String apiKey = ConfigReader.readConfigurationFile("KEY");
+    private final String apiToken = ConfigReader.readConfigurationFile("TOKEN");
 
     public CreateBoardService createBoardService(){
         Retrofit  retrofit = new Retrofit.Builder()

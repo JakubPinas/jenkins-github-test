@@ -1,25 +1,16 @@
 package com.trello.PojoClasses.Response.Additional;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.trello.PojoClasses.Response.Limits;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class LabelRoot {
 
-    @JsonProperty
     public String id;
-
-    @JsonProperty
     public String idBoard;
-
-    @JsonProperty
     public String name;
-
-    @JsonProperty
     public String color;
-
-    @JsonProperty("uses")
-    public int myuses;
-
+    public int uses;
     public Limits limits;
 
     public String getId() {
@@ -54,12 +45,12 @@ public class LabelRoot {
         this.color = color;
     }
 
-    public int getMyuses() {
-        return myuses;
+    public int getUses() {
+        return uses;
     }
 
-    public void setMyuses(int myuses) {
-        this.myuses = myuses;
+    public void setUses(int uses) {
+        this.uses = uses;
     }
 
     public Limits getLimits() {
@@ -68,5 +59,17 @@ public class LabelRoot {
 
     public void setLimits(Limits limits) {
         this.limits = limits;
+    }
+
+    @Override
+    public String toString() {
+        return "LabelRoot{" +
+                "id='" + id + '\'' +
+                ", idBoard='" + idBoard + '\'' +
+                ", name='" + name + '\'' +
+                ", color='" + color + '\'' +
+                ", uses=" + uses +
+                ", limits=" + limits +
+                '}';
     }
 }

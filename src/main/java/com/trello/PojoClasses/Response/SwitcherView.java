@@ -1,15 +1,13 @@
 package com.trello.PojoClasses.Response;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class SwitcherView {
 
-    @JsonProperty
+
     public String viewType;
-
-    @JsonProperty
     public boolean enabled;
-
 
     public SwitcherView() {
     }
@@ -18,8 +16,6 @@ public class SwitcherView {
         this.viewType = viewType;
         this.enabled = enabled;
     }
-
-
 
     public String getViewType() {
         return viewType;

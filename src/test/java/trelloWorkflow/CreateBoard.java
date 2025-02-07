@@ -5,6 +5,7 @@ import com.trello.PojoClasses.Response.Prefs;
 import org.assertj.core.api.Assertions;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import utility.*;
@@ -85,6 +86,8 @@ public class CreateBoard extends BaseTest {
         Assertions.assertThat(actualPermission).as("Permission levels don't match").isEqualTo(expectedPermission);
         Assertions.assertThat(actualVoting).as("Voting don't match").isEqualTo(expectedVoting);
         Assertions.assertThat(actualBackgroundColor).as("Backgrounds colors don't match").isEqualTo(expectedBackgroundColor);
+
+
 
         BOARD_ID = response.then().extract().path("id").toString();
     }
