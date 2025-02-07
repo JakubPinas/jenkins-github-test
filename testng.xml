@@ -7,8 +7,10 @@
             <class name="trelloWorkflow.TestCreateBoard"/>
             <class name="trelloWorkflow.TestCreateLabelsAutomated"/>
             <class name="trelloWorkflow.TestGetBoardByID"/>
+            <class name="trelloWorkflow.TestUpdateBoardWrongRequest"/>
             <class name="trelloWorkflow.TestUpdateBoard"/>
             <class name="trelloWorkflow.TestDeleteBoard"/>
+            <class name="trelloWorkflow.TestCreateBoardUnauthorized"/>
             <class name="trelloWorkflow.okHttpAPIManagment.TestOkHttpApiClient"/>
             <class name="trelloWorkflow.retrofitAPIManagment.RetrofitTests.TestRetrofitApiClient"/>
         </classes>
