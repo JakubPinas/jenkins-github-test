@@ -24,7 +24,7 @@ public class TestOkHttpApiClient extends BaseTest {
                 .build();
 
         Request request = new Request.Builder()
-                .url(URL_FOR_OKHTTP + BOARD_ID + "/lists" + Auth)
+                .url(URL_FOR_OKHTTP + "/boards/"+ BOARD_ID + "/lists" + Auth)
                 .post(formBody)
                 .build();
 
@@ -43,7 +43,7 @@ public class TestOkHttpApiClient extends BaseTest {
 
         createBoardUtil();
         createLabelsUtil();
-        HttpUrl.Builder  urlBuilder = HttpUrl.parse(URL_FOR_OKHTTP + BOARD_ID + "/labels" ).newBuilder();
+        HttpUrl.Builder  urlBuilder = HttpUrl.parse(URL_FOR_OKHTTP + "/boards/" + BOARD_ID + "/labels" ).newBuilder();
 
         urlBuilder
                 .addQueryParameter("fields", "id")
@@ -89,7 +89,7 @@ public class TestOkHttpApiClient extends BaseTest {
         createBoardUtil();
 
         Request request = new Request.Builder()
-                .url(URL_FOR_OKHTTP + BOARD_ID + Auth)
+                .url(URL_FOR_OKHTTP + "/boards/" + BOARD_ID + Auth)
                 .build();
 
         OkHttpClient client  =new OkHttpClient();
@@ -105,11 +105,10 @@ public class TestOkHttpApiClient extends BaseTest {
     @Test
     public void  asynchrousGETBoard() throws IOException {
 
-
         createBoardUtil();
 
         Request request = new Request.Builder()
-                .url(URL_FOR_OKHTTP + BOARD_ID + Auth)
+                .url(URL_FOR_OKHTTP + "/boards/" + BOARD_ID + Auth)
                 .build();
         OkHttpClient client =new OkHttpClient();
         Call call = client.newCall(request);
@@ -141,7 +140,7 @@ public class TestOkHttpApiClient extends BaseTest {
                 .build();
 
         Request request = new Request.Builder()
-                .url(URL_FOR_OKHTTP + BOARD_ID + Auth)
+                .url(URL_FOR_OKHTTP + "/boards/" + BOARD_ID + Auth)
                 .put(formBody)
                 .build();
 
@@ -161,7 +160,7 @@ public class TestOkHttpApiClient extends BaseTest {
         createBoardUtil();
 
         Request request = new Request.Builder()
-                .url(URL_FOR_OKHTTP + BOARD_ID + Auth)
+                .url(URL_FOR_OKHTTP + "/boards/" + BOARD_ID + Auth)
                 .delete()
                 .build();
 

@@ -12,7 +12,7 @@ public class TestUpdateBoardWrongRequest extends BaseTest{
 
 
         System.out.println(BOARD_ID);
-        String endpoint = BOARD_ID + "/lists";
+        String endpoint = "/boards/" + BOARD_ID + "/lists";
 
         Response response = given().spec(requestSpec).contentType("application/json").
                 queryParam("name", "123lesgo").
@@ -32,7 +32,7 @@ public class TestUpdateBoardWrongRequest extends BaseTest{
 
 
         System.out.println(BOARD_ID);
-        String endpoint = BOARD_ID + "1";
+        String endpoint = "/boards/" + BOARD_ID + "1";
 
         Response response = given().spec(requestSpec).contentType("application/json").
                 queryParam("name", "123lesgo").

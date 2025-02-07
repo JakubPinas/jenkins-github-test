@@ -12,7 +12,7 @@ public class TestUpdateBoard extends BaseTest {
 
         createLabelsUtil();
         System.out.println(BOARD_ID);
-        String endpoint =  BOARD_ID;
+        String endpoint = "/boards/" + BOARD_ID;
 
         Response response = new BuildRequest().requestSpecification.
                 queryParam("name", "123lesgo").

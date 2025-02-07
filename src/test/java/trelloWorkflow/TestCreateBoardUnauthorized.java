@@ -21,7 +21,7 @@ public class TestCreateBoardUnauthorized extends BaseTest {
                 queryParam("key",wrongKey).
                 queryParam("token", wrongToken).
                 when().
-                post(); //Send request
+                post("/boards/"); //Send request
         wrongAuth.prettyPrint();
 
         Assertions.assertThat(wrongAuth.statusCode()).as("Should be  unauthorized  401").isEqualTo(401);
@@ -40,7 +40,7 @@ public class TestCreateBoardUnauthorized extends BaseTest {
                 queryParam("key",wrongKey).
                 queryParam("token", Token).
                 when().
-                post(); //Send request
+                post("/boards/"); //Send request
         wrongAuth.prettyPrint();
 
         Assertions.assertThat(wrongAuth.statusCode()).as("Should be  unauthorized  401").isEqualTo(401);
@@ -50,7 +50,7 @@ public class TestCreateBoardUnauthorized extends BaseTest {
     public static void createBoardWrongToken() {
 
         String wrongToken = "ATTAadbfa99515b6a81298b0f8941133e095ff9d4f915525ed0872e1cb26bcd7fa29F0EBD016";
-        String name            = "Kuba123";
+        String name = "Kuba123";
 
         Response wrongAuth = given().
                 spec(requestSpec).
@@ -59,7 +59,7 @@ public class TestCreateBoardUnauthorized extends BaseTest {
                 queryParam("key",Key).
                 queryParam("token", wrongToken).
                 when().
-                post();
+                post("/boards/");
         wrongAuth.prettyPrint();
 
         Assertions.assertThat(wrongAuth.statusCode()).as("Should be  unauthorized  401").isEqualTo(401);

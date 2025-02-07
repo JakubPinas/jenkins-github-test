@@ -10,7 +10,7 @@ public class SendRequest {
     }
 
     public static Response sendPost(RequestSpecification requestSpecification) {
-        return requestSpecification.when().post();
+        return requestSpecification.when().post("/boards/");
     }
 
     public static Response sendPut(RequestSpecification requestSpecification) {

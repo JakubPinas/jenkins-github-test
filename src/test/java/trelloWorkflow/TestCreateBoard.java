@@ -46,7 +46,7 @@ public class TestCreateBoard extends BaseTest {
                 queryParam("token", Token).
 
                 when().
-                post(); //Send request
+                post("/boards/"); //Send request
         response.then().spec(responseSpec);//validate response
         response.prettyPrint();
 

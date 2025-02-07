@@ -22,7 +22,7 @@ public class TestCreateLabelsAutomated extends BaseTest {
     @Test(dataProvider = "data-provider")
     public void createLabels(String color, String name) {
 
-        String endpoint = BOARD_ID + "/labels";
+        String endpoint = "/boards/" + BOARD_ID + "/labels";
 
         Response response = new BuildRequest().requestSpecification
                 .queryParam("color", color)

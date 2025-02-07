@@ -313,5 +313,6 @@ public class Prefs {
                 ", canBePrivate=" + canBePrivate +
                 ", canInvite=" + canInvite +
                 '}';
+
     }
 }

@@ -10,7 +10,7 @@ public class TestGetBoardByID extends BaseTest {
     public void getLabels() {
 
         System.out.println(BOARD_ID);
-        String endpoint =  BOARD_ID;
+        String endpoint =  "/boards/" + BOARD_ID;
 
         Response response = new BuildRequest().requestSpecification.
                 when().

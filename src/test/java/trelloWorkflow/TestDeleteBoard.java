@@ -9,7 +9,7 @@ public class TestDeleteBoard extends BaseTest {
     @Test
     void deleteBoard(){
 
-        String endpoint = BOARD_ID;
+        String endpoint = "/boards/" + BOARD_ID;
         Response response = new BuildRequest().requestSpecification.when().delete(endpoint);
         response.then()
                 .assertThat().statusCode(200 );

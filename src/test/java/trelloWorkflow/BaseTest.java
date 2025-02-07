@@ -7,13 +7,9 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 import utility.BuildRequest;
 import utility.SendRequest;
 import utilityRetrofit.ConfigReader;
-import java.util.Arrays;
-import java.util.List;
 
 public class BaseTest {
 
@@ -23,12 +19,12 @@ public class BaseTest {
     protected static String Token = ConfigReader.readConfigurationFile("TOKEN");
     protected static String Auth = String.format("?&key=%s&token=%s",Key,Token);
     protected static String BOARD_ID;
-    protected static String URL_FOR_OKHTTP  = "https://api.trello.com/1/boards/";
+    protected static String URL_FOR_OKHTTP  = "https://api.trello.com/1";
 
     @BeforeSuite
     public void setBaseURI() {
        // requestSpec = new RequestSpecBuilder().setBaseUri("https://api.trello.com/1/boards").build();
-        requestSpec = new RequestSpecBuilder().setBaseUri("https://api.trello.com/1/boards/").build();
+        requestSpec = new RequestSpecBuilder().setBaseUri("https://api.trello.com/1").build();
 
     }
 
@@ -53,7 +49,7 @@ public class BaseTest {
 
     protected void createLabelsUtil() {
 
-        String endpoint = BOARD_ID + "/labels";
+        String endpoint = "/boards/" + BOARD_ID + "/labels";
 
         String[] color = {"pink", "orange","blue", "red"};
         String[] name = {"barbie", "orange","ice", "bloody"};
@@ -71,7 +67,7 @@ public class BaseTest {
 
     protected void deleteBoardUtil(){
 
-        String endpoint = BOARD_ID;
+        String endpoint = "/boards/" + BOARD_ID;
         Response response = new BuildRequest().requestSpecification.when().delete(endpoint);
         response.then().assertThat().statusCode(200 );
     }

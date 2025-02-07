@@ -11,7 +11,7 @@ public class TestCreateLabels extends BaseTest {
     @Test(enabled = false)
     public  void addLabelsToBoard() {
 
-        String endpoint = BOARD_ID + "/labels";
+        String endpoint = "/boards/" + BOARD_ID + "/labels";
         System.out.println(BOARD_ID);
 
         Response response1 = given().
