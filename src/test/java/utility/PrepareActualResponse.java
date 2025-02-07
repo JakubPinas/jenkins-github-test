@@ -17,6 +17,4 @@ public class PrepareActualResponse {
         this.actualBackgroundColor = response.jsonPath().getString("prefs.background");
 
     }
-
-
 }

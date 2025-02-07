@@ -9,12 +9,9 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import utility.BuildRequest;
 import utility.SendRequest;
-
 import utilityRetrofit.ConfigReader;
-
 import java.util.Arrays;
 import java.util.List;
-
 
 public class BaseTest {
 
@@ -24,10 +21,7 @@ public class BaseTest {
     protected static String Token = ConfigReader.readConfigurationFile("TOKEN");
     protected static String Auth = String.format("?&key=%s&token=%s",Key,Token);
     protected static String BOARD_ID;
-
-
     protected static String URL_FOR_OKHTTP  = "https://api.trello.com/1/boards/";
-
 
     @BeforeSuite
     public void setBaseURI() {
@@ -41,10 +35,7 @@ public class BaseTest {
         responseSpec = new ResponseSpecBuilder().expectStatusCode(200).build();
     }
 
-
-
     protected Response createBoardUtil() {
-
 
         String name = "( ͡° ͜ʖ ͡°)";
         String desc = "Base Description";
@@ -60,17 +51,16 @@ public class BaseTest {
 
     protected void createLabelsUtil() {
 
-
         String endpoint = BOARD_ID + "/labels";
         // Define test data
-        List<CreateLabelsAutomated.TestData> testDataList = Arrays.asList(
-                new CreateLabelsAutomated.TestData("orange", "orange"),
-                new CreateLabelsAutomated.TestData("pink", "barbie"),
-                new CreateLabelsAutomated.TestData("red", "bloody"),
-                new CreateLabelsAutomated.TestData("blue", "ice")
+        List<TestCreateLabelsAutomated.TestData> testDataList = Arrays.asList(
+                new TestCreateLabelsAutomated.TestData("orange", "orange"),
+                new TestCreateLabelsAutomated.TestData("pink", "barbie"),
+                new TestCreateLabelsAutomated.TestData("red", "bloody"),
+                new TestCreateLabelsAutomated.TestData("blue", "ice")
         );
 
-        for (CreateLabelsAutomated.TestData data : testDataList) {
+        for (TestCreateLabelsAutomated.TestData data : testDataList) {
             Response response = new BuildRequest().requestSpecification
                     .queryParam("color", data.color)
                     .queryParam("name", data.name)
@@ -79,7 +69,6 @@ public class BaseTest {
             response.then().spec(responseSpec); // Validate response
         }
     }
-
 
     protected void deleteBoardUtil(){
 

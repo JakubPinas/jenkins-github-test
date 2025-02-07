@@ -5,18 +5,13 @@ import com.trello.PojoClasses.Response.Prefs;
 import org.assertj.core.api.Assertions;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import utility.*;
-
-
 import java.io.IOException;
-
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.notNullValue;
 
-public class CreateBoard extends BaseTest {
+public class TestCreateBoard extends BaseTest {
 
     @Test(enabled = true)
     public static void createBoardRawCode() {
@@ -87,8 +82,6 @@ public class CreateBoard extends BaseTest {
         Assertions.assertThat(actualVoting).as("Voting don't match").isEqualTo(expectedVoting);
         Assertions.assertThat(actualBackgroundColor).as("Backgrounds colors don't match").isEqualTo(expectedBackgroundColor);
 
-
-
         BOARD_ID = response.then().extract().path("id").toString();
     }
 
@@ -155,8 +148,5 @@ public class CreateBoard extends BaseTest {
         PrepareExpectedResponse responseAsPOJO = new PrepareExpectedResponse(responseModelPOJO);
         CheckActualVsExpectedResponses.checkActualVsExpectedResponses(actualResponse,expectedResponse);
         CheckActualVsExpectedResponses.checkActualVsExpectedResponses(actualResponse,responseAsPOJO);
-
-
-
     }
 }

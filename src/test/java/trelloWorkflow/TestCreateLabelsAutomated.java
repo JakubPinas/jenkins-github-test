@@ -4,14 +4,10 @@ import io.restassured.response.Response;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
 import utility.BuildRequest;
-
 import java.util.Arrays;
 import java.util.List;
 
-import static io.restassured.RestAssured.given;
-
-public class CreateLabelsAutomated extends BaseTest {
-
+public class TestCreateLabelsAutomated extends BaseTest {
 
     static class TestData {
         String color;
@@ -44,7 +40,6 @@ public class CreateLabelsAutomated extends BaseTest {
                     .post(endpoint); // Send request
             response.then().spec(responseSpec); // Validate response
 
-
             Assertions.assertThat(response.jsonPath().getString("id"))
                     .as("Check ID")
                     .isNotNull()
@@ -61,7 +56,5 @@ public class CreateLabelsAutomated extends BaseTest {
 
         }
     }
-
-
 }
 

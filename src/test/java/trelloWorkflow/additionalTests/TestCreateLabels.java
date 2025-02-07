@@ -4,18 +4,12 @@ import trelloWorkflow.BaseTest;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import utility.BuildRequest;
-
 import static io.restassured.RestAssured.given;
 
-public class CreateLabels extends BaseTest {
+public class TestCreateLabels extends BaseTest {
 
     @Test(enabled = false)
     public  void addLabelsToBoard() {
-
-        //This Post request was made to test if it's possible to
-        // make requests providing not only query parameters but also body
-
-
 
         String endpoint = BOARD_ID + "/labels";
         System.out.println(BOARD_ID);
@@ -66,14 +60,5 @@ public class CreateLabels extends BaseTest {
                 .when().post(endpoint);
         response4.then().spec(responseSpec);//validate response
         response4.prettyPrint();
-
-
-
     }
-
-
-
-
-
-
 }

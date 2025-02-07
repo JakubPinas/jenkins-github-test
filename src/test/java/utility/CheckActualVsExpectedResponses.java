@@ -3,7 +3,6 @@ package utility;
 import org.testng.asserts.SoftAssert;
 public class CheckActualVsExpectedResponses {
 
-
     public static void checkActualVsExpectedResponses(PrepareActualResponse actualResponse, PrepareExpectedResponse expectedResponse) {
 
         SoftAssert softAssert = new SoftAssert();
@@ -15,8 +14,5 @@ public class CheckActualVsExpectedResponses {
         softAssert.assertAll();
 
     }
-
-
-
 }
 

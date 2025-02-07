@@ -1,31 +1,19 @@
 package trelloWorkflow.retrofitAPIManagment.RetrofitTests;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import org.json.JSONObject;
 import trelloWorkflow.BaseTest;
 import utilityRetrofit.CreateBoardClient;
 import com.trello.PojoClasses.Request.BoardRootRequest;
 import com.trello.PojoClasses.Response.BoardRootResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import retrofit2.Response;
-
-
 import java.io.IOException;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
-
-public class CreateBoardTests extends BaseTest  {
-
+public class TestRetrofitApiClient extends BaseTest  {
 
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     Logger logger = Logger.getLogger(this.getClass().getName());
@@ -33,7 +21,6 @@ public class CreateBoardTests extends BaseTest  {
 
     @Test
     public void validateBoardCreationTest() throws IOException {
-
 
         BoardRootRequest boardRootRequest = new BoardRootRequest();
         boardRootRequest.setName("RetrofitBoard");
@@ -43,7 +30,6 @@ public class CreateBoardTests extends BaseTest  {
         boardRootRequest.setPrefs_background("pink");
         boardRootRequest.setPrefs_permissionLevel("public");
 
-
         Response<BoardRootResponse> response = createBoardClient.boardRootResponse(boardRootRequest);
         logger.log(Level.INFO, "Create Board Response: \n" + gson.toJson(response.body()));
         System.out.println(response.code());
@@ -51,7 +37,6 @@ public class CreateBoardTests extends BaseTest  {
         assert response.body() != null;
         BOARD_ID = response.body().getId();
 
-        assert response != null;
         Assert.assertEquals(response.body().getName(),boardRootRequest.getName());
         Assert.assertEquals(response.body().getDesc(),boardRootRequest.getDesc());
         Assert.assertEquals(response.body().getPrefs().getPermissionLevel(),boardRootRequest.getPrefs_permissionLevel());

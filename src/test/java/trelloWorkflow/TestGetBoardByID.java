@@ -1,27 +1,21 @@
-package trelloWorkflow.additionalTests;
+package trelloWorkflow;
 
-import trelloWorkflow.BaseTest;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import utility.BuildRequest;
 
-public class getLabels extends BaseTest {
+public class TestGetBoardByID extends BaseTest {
 
     @Test
-    public void getLabelsTest() {
+    public void getLabels() {
 
-//        createBoardUtil();
-//        createLabelsUtil();
         System.out.println(BOARD_ID);
-        String endpoint =  BOARD_ID + "/labels";
+        String endpoint =  BOARD_ID;
 
         Response response = new BuildRequest().requestSpecification.
-                queryParam("fields", "color").
-                queryParam("fields", "name").
                 when().
                 get(endpoint); //Send request
         response.then().spec(responseSpec);//validate response
         response.prettyPrint();
-
     }
 }

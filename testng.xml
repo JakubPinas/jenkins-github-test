@@ -4,13 +4,13 @@
     <test thread-count="5" name="trelloWorkflow">
         <classes>
             <!-- <class name="POST_test"/> -->
-            <class name="trelloWorkflow.CreateBoard"/>
-            <class name="trelloWorkflow.CreateLabelsAutomated"/>
-            <class name="trelloWorkflow.getBoardByID"/>
-            <class name="trelloWorkflow.updateBoard"/>
-            <class name="trelloWorkflow.deleteBoard"/>
-            <class name="trelloWorkflow.okHttpAPIManagment.SomeOkHttpTesting"/>
-            <class name="trelloWorkflow.retrofitAPIManagment.RetrofitTests.CreateBoardTests"/>
+            <class name="trelloWorkflow.TestCreateBoard"/>
+            <class name="trelloWorkflow.TestCreateLabelsAutomated"/>
+            <class name="trelloWorkflow.TestGetBoardByID"/>
+            <class name="trelloWorkflow.TestUpdateBoard"/>
+            <class name="trelloWorkflow.TestDeleteBoard"/>
+            <class name="trelloWorkflow.okHttpAPIManagment.TestOkHttpApiClient"/>
+            <class name="trelloWorkflow.retrofitAPIManagment.RetrofitTests.TestRetrofitApiClient"/>
         </classes>
     </test> <!-- trelloWorkflow -->
 </suite> <!-- Suite -->

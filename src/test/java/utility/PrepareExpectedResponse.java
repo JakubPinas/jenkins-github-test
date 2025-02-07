@@ -1,5 +1,4 @@
 package utility;
-
 import com.trello.PojoClasses.Response.BoardRootResponse;
 
 public class PrepareExpectedResponse {
@@ -9,7 +8,6 @@ public class PrepareExpectedResponse {
     public String expectedPermission;
     public String expectedVoting;
     public String expectedBackgroundColor;
-
 
     public PrepareExpectedResponse(BoardRootResponse boardRootResponse) {
         this.expectedName = boardRootResponse.getName();

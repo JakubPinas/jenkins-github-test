@@ -4,7 +4,7 @@ import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import utility.BuildRequest;
 
-public class deleteBoard extends BaseTest {
+public class TestDeleteBoard extends BaseTest {
 
     @Test
     void deleteBoard(){
@@ -13,6 +13,5 @@ public class deleteBoard extends BaseTest {
         Response response = new BuildRequest().requestSpecification.when().delete(endpoint);
         response.then()
                 .assertThat().statusCode(200 );
-
     }
 }
