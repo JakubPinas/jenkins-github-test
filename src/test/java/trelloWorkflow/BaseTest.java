@@ -11,6 +11,7 @@ import utility.BuildRequest;
 import utility.SendRequest;
 import utilityRetrofit.ConfigReader;
 
+
 public class BaseTest {
 
     protected static RequestSpecification requestSpec;
